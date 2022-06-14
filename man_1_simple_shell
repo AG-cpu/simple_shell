@@ -1,0 +1,16 @@
+MAN(1)                                  Simple_Shell Manual pager utils                                            MAN(1)
+
+NAME
+       nshell - a simple shell project for alx ES.
+
+SYNOPSIS
+  alias         alias [NAME[='VALUE'] ...]
+  cd            cd   [DIRECTORY]
+  exit          exit [STATUS]
+  env           env
+  setenv        setenv [VARIABLE] [VALUE]
+  unsetenv      unsetenv [VARIABLE]
+
+
+DESCRIPTION
+       a simple project version of the shell that execute and uses aliases and builtin linux shell commands.
