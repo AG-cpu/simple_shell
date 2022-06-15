@@ -10,40 +10,40 @@ end_nlist *_g_dir_pth(char *path);
  */
 char *get_location(char *command)
 {
-	char **path, *temp;
-	end_nlist *dirs, *head;
-	struct stat st;
+char **path, *temp;
+end_nlist *dirs, *head;
+struct stat st;
 
-	path = _g_env("PATH");
-	if (!path || !(*path))
-		return (NULL);
+path = _g_env("PATH");
+if (!path || !(*path))
+return (NULL);
 
-	dirs = _g_dir_pth(*path + 5);
-	head = dirs;
+dirs = _g_dir_pth(*path + 5);
+head = dirs;
 
-	while (dirs)
-	{
-		temp = malloc(str_len(dirs->dir) + str_len(command) + 2);
-		if (!temp)
-			return (NULL);
+while (dirs)
+{
+temp = malloc(str_len(dirs->dir) + str_len(command) + 2);
+if (!temp)
+return (NULL);
 
-		cp_str(temp, dirs->dir);
-		lin_str(temp, "/");
-		lin_str(temp, command);
+cp_str(temp, dirs->dir);
+lin_str(temp, "/");
+lin_str(temp, command);
 
-		if (stat(temp, &st) == 0)
-		{
-			free_list(head);
-			return (temp);
-		}
+if (stat(temp, &st) == 0)
+{
+free_list(head);
+return (temp);
+}
 
-		dirs = dirs->next;
-		free(temp);
-	}
+dirs = dirs->next;
+free(temp);
+}
 
-	free_list(head);
+free_list(head);
 
-	return (NULL);
+return (NULL);
 }
 
 /**

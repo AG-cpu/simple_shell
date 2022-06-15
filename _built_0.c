@@ -12,21 +12,21 @@ void help_help(void);
  */
 void help_all(void)
 {
-	char *msg = "nshell\nCommands are defined internally.\n";
+char *msg = "nshell\nCommands are defined internally.\n";
 
-	write(STDOUT_FILENO, msg, str_len(msg));
-	msg = "Type 'help' to see this list.\nType 'help name' to search ";
-	write(STDOUT_FILENO, msg, str_len(msg));
-	msg = "out more about the function 'name'.\n\n  alias   \t";
-	write(STDOUT_FILENO, msg, str_len(msg));
-	msg = "alias [NAME[='VALUE'] ...]\n  cd    \tcd   ";
-	write(STDOUT_FILENO, msg, str_len(msg));
-	msg = "[DIRECTORY]\n  exit    \texit [STATUS]\n  env     \tenv";
-	write(STDOUT_FILENO, msg, str_len(msg));
-	msg = "\n  setenv  \tsetenv [VARIABLE] [VALUE]\n  unsetenv\t";
-	write(STDOUT_FILENO, msg, str_len(msg));
-	msg = "unsetenv [VARIABLE]\n";
-	write(STDOUT_FILENO, msg, str_len(msg));
+write(STDOUT_FILENO, msg, str_len(msg));
+msg = "Type 'help' to see this list.\nType 'help name' to search ";
+write(STDOUT_FILENO, msg, str_len(msg));
+msg = "out more about the function 'name'.\n\n  alias   \t";
+write(STDOUT_FILENO, msg, str_len(msg));
+msg = "alias [NAME[='VALUE'] ...]\n  cd    \tcd   ";
+write(STDOUT_FILENO, msg, str_len(msg));
+msg = "[DIRECTORY]\n  exit    \texit [STATUS]\n  env     \tenv";
+write(STDOUT_FILENO, msg, str_len(msg));
+msg = "\n  setenv  \tsetenv [VARIABLE] [VALUE]\n  unsetenv\t";
+write(STDOUT_FILENO, msg, str_len(msg));
+msg = "unsetenv [VARIABLE]\n";
+write(STDOUT_FILENO, msg, str_len(msg));
 }
 
 /**
