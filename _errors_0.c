@@ -6,9 +6,9 @@ char *ext_error(char **args);
 char *cd_error(char **args);
 char *syntax_error(char **args);
 /**
- * env_error: env errors.
+ * env_error - get the env errors.
  * @args: An array of arguments.
- * Return: string.
+ * Return: string
  */
 char *env_error(char **args)
 {
@@ -40,7 +40,7 @@ char *env_error(char **args)
 }
 
 /**
- * alias_error: alias errors.
+ * alias_error - alias errors.
  * @args: An array of arguments.
  * Return: string.
  */
@@ -62,7 +62,7 @@ char *alias_error(char **args)
 }
 
 /**
- * ext_error: exit errors.
+ * ext_error - exit errors.
  * @args: An array of arguments.
  * Return: string.
  */
@@ -95,7 +95,7 @@ char *ext_error(char **args)
 }
 
 /**
- * cd_error: cd errors.
+ * cd_error - cd errors.
  * @args: An array of arguments.
  * Return: The error string.
  */
@@ -133,7 +133,7 @@ char *cd_error(char **args)
 }
 
 /**
- * syntax_error: syntax errors.
+ * syntax_error - syntax errors.
  * @args: An array of arguments.
  * Return: string.
  */
