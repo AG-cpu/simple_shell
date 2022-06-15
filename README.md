@@ -1,1 +1,3 @@
- simple shell readme file in under updating , soon 
+Simple Shell
+Building simple_shell for ALX program
+Enjoy
