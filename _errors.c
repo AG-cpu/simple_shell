@@ -13,25 +13,25 @@ char *e404_error(char **args);
  */
 int i_len(int num)
 {
-	unsigned int num1;
-	int len = 1;
+unsigned int num1;
+int len = 1;
 
-	if (num < 0)
-	{
-		len++;
-		num1 = num * -1;
-	}
-	else
-	{
-		num1 = num;
-	}
-	while (num1 > 9)
-	{
-		len++;
-		num1 /= 10;
-	}
+if (num < 0)
+{
+len++;
+num1 = num * -1;
+}
+else
+{
+num1 = num;
+}
+while (num1 > 9)
+{
+len++;
+num1 /= 10;
+}
 
-	return (len);
+return (len);
 }
 
 /**
@@ -41,34 +41,34 @@ int i_len(int num)
  */
 char *conv_i(int num)
 {
-	char *buffer;
-	int len = i_len(num);
-	unsigned int num1;
+char *buffer;
+int len = i_len(num);
+unsigned int num1;
 
-	buffer = malloc(sizeof(char) * (len + 1));
-	if (!buffer)
-		return (NULL);
+buffer = malloc(sizeof(char) * (len + 1));
+if (!buffer)
+return (NULL);
 
-	buffer[len] = '\0';
+buffer[len] = '\0';
 
-	if (num < 0)
-	{
-		num1 = num * -1;
-		buffer[0] = '-';
-	}
-	else
-	{
-		num1 = num;
-	}
+if (num < 0)
+{
+num1 = num * -1;
+buffer[0] = '-';
+}
+else
+{
+num1 = num;
+}
 
-	len--;
-	do {
-		buffer[len] = (num1 % 10) + '0';
-		num1 /= 10;
-		len--;
-	} while (num1 > 0);
+len--;
+do {
+buffer[len] = (num1 % 10) + '0';
+num1 /= 10;
+len--;
+} while (num1 > 0);
 
-	return (buffer);
+return (buffer);
 }
 
 
@@ -80,36 +80,36 @@ char *conv_i(int num)
  */
 int error_prt(char **args, int err)
 {
-	char *error;
+char *error;
 
-	switch (err)
-	{
-	case -1:
-		error = env_error(args);
-		break;
-	case 1:
-		error = alias_error(args);
-		break;
-	case 2:
-		if (*(args[0]) == 'e')
-			error = ext_error(++args);
-		else if (args[0][0] == ';' || args[0][0] == '&' || args[0][0] == '|')
-			error = syntax_error(args);
-		else
-			error = cd_error(args);
-		break;
-	case 126:
-		error = acc_error(args);
-		break;
-	case 127:
-		error = e404_error(args);
-		break;
-	}
-	write(STDERR_FILENO, error, str_len(error));
+switch (err)
+{
+case -1:
+error = env_error(args);
+break;
+case 1:
+error = alias_error(args);
+break;
+case 2:
+if (*(args[0]) == 'e')
+error = ext_error(++args);
+else if (args[0][0] == ';' || args[0][0] == '&' || args[0][0] == '|')
+error = syntax_error(args);
+else
+error = cd_error(args);
+break;
+case 126:
+error = acc_error(args);
+break;
+case 127:
+error = e404_error(args);
+break;
+}
+write(STDERR_FILENO, error, str_len(error));
 
-	if (error)
-		free(error);
-	return (err);
+if (error)
+free(error);
+return (err);
 
 }
 /**

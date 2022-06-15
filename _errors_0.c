@@ -12,31 +12,31 @@ char *syntax_error(char **args);
  */
 char *env_error(char **args)
 {
-	char *error, *hist_str;
-	int len;
+char *error, *hist_str;
+int len;
 
-	hist_str = conv_i(hist);
-	if (!hist_str)
-		return (NULL);
+hist_str = conv_i(hist);
+if (!hist_str)
+return (NULL);
 
-	args--;
-	len = str_len(name) + str_len(hist_str) + str_len(args[0]) + 45;
-	error = malloc(sizeof(char) * (len + 1));
-	if (!error)
-	{
-		free(hist_str);
-		return (NULL);
-	}
+args--;
+len = str_len(name) + str_len(hist_str) + str_len(args[0]) + 45;
+error = malloc(sizeof(char) * (len + 1));
+if (!error)
+{
+free(hist_str);
+return (NULL);
+}
 
-	cp_str(error, name);
-	lin_str(error, ": ");
-	lin_str(error, hist_str);
-	lin_str(error, ": ");
-	lin_str(error, args[0]);
-	lin_str(error, ": Cannot add or remove from environment\n");
+cp_str(error, name);
+lin_str(error, ": ");
+lin_str(error, hist_str);
+lin_str(error, ": ");
+lin_str(error, args[0]);
+lin_str(error, ": Cannot add or remove from environment\n");
 
-	free(hist_str);
-	return (error);
+free(hist_str);
+return (error);
 }
 
 /**
